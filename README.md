@@ -12,9 +12,9 @@ Where..
 
  - STORAGE_TYPE = local or session
  - ACTION
-        selectAll/all
-        select/get
-        insert/set
+        selectAll/all,
+        select/get,
+        insert/set,
         remove/del
 
 Examples:
