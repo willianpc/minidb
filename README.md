@@ -21,7 +21,7 @@ Examples:
 
 minidb.local.set('name', 'Willian');
 
-minidb.local.get('name'); //give you "Willian"
+minidb.local.get('name'); //gives you "Willian"
 
 minidb.session.set('userData', {id:333, name: 'Joseph'});
 
