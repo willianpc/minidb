@@ -29,6 +29,10 @@ minidb.local.get('userData'); //gives you nothing
 
 minidb.session.get('userData'); //gives you {id:333, name: 'Joseph'}
 
+minidb.local.insert('someArray', [2, 3, 4, 5, 6, 'a string', {myObj: 'yay! an object'}]);
+
+var someArray = minidb.local.select('someArray');
+
 
 selectAll / all returns a key/value set of data.
 
