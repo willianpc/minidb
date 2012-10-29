@@ -20,9 +20,12 @@ Where..
 Examples:
 
 minidb.local.set('name', 'Willian');
+
 minidb.local.get('name'); //give you "Willian"
 
 minidb.session.set('userData', {id:333, name: 'Joseph'});
+
 minidb.local.get('userData'); //gives you nothing
+
 minidb.session.get('userData'); //gives you {id:333, name: 'Joseph'}
 
