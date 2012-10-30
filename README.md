@@ -10,12 +10,12 @@ minidb.STORAGE_TYPE.ACTION
 
 **Where...**
 
- - STORAGE_TYPE = local or session
- - ACTION
-        selectAll/all,
-        select/get,
-        insert/set,
-        remove/del
+* STORAGE_TYPE = local or session
+* ACTION
+ * selectAll/all
+ * select/get
+ * insert/set
+ * remove/del
 
 **Examples:**
 
@@ -32,7 +32,6 @@ minidb.session.get('userData'); //gives you {id:333, name: 'Joseph'}
 minidb.local.insert('someArray', [2, 3, 4, 5, 6, 'a string', {myObj: 'yay! an object'}]);
 
 var someArray = minidb.local.select('someArray');
-
 
 selectAll / all returns a key/value set of data.
 
