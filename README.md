@@ -1,7 +1,7 @@
 minidb
 ======
 
-A simple wraper for local/session storage DOM API management
+A simple wrapper for the local/session storage DOM API management
 
 How to use it
 ------------------------------
