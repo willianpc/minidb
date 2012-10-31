@@ -1,3 +1,5 @@
+'use strict';
+
 ;var minidb = (function(d, w, undefined) {
 
     var local, session;
