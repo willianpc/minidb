@@ -3,6 +3,10 @@ minidb
 
 A simple wrapper for the local/session storage DOM API management
 
+Live demo
+--------------------------
+http://wpsystem.com.br/minidb/
+
 How to use it
 ------------------------------
 
