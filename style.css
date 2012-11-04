@@ -1,0 +1,19 @@
+html, body {
+    height: 100%;
+    font-family: arial, helvetica;
+}
+
+label {
+    display:block;
+}
+
+.field {
+    margin-bottom:15px;
+}
+
+.warning {
+    width: 400px;
+    background-color: #eee;
+    padding: 15px;
+    display: none;
+}

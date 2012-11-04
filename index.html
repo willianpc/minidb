@@ -1,0 +1,106 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>minidata</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+
+<div class="warning">
+    <div>You have pending data to be saved. Would you like to save them now?</div>
+    <input type="button" value="Yes" class="btnYes"/>
+    <input type="button" value="No" class="btnNo"/>
+</div>
+
+<h1>Please, register</h1>
+
+<form>
+    <div class="field">
+        <label for="name">Name</label>
+        <input type="text" name="name"/>
+    </div>
+    <div class="field">
+        <label for="name">Last name</label>
+        <input type="text" name="lastname"/>
+    </div>
+    <div class="field">
+        <label for="name">E-mail</label>
+        <input type="text" name="email"/>
+    </div>
+    <div class="field">
+        <input type="button" class="btnSave" value="Save"/>
+    </div>
+</form>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="minidb.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+    checkPendingData();
+
+    $('.btnSave').click(function() {
+        var user = {
+            name: $('input[name="name"]').val(),
+            lastname: $('input[name="lastname"]').val(),
+            email: $('input[name="email"]').val()
+        };
+        save(user);
+    });
+    
+    $('.btnYes').click(function() {
+        cleanSavedData();
+        
+        //new attempt to save each stored data
+        //this could be done by iterating minidb.local.all() and calling save.php or whatever you have on server side:
+        /*
+        for(var k in minidb.local.all()) {
+            $.load('save.php', minidb.local.get(k));
+        }
+        */
+        
+        alert('Data saved!');
+        $('.warning').hide('fast');
+    });
+
+    $('.btnNo').click(function() {
+        $('.warning').hide('fast');
+    });
+
+});
+
+function save(user) {
+    
+    $.ajax('save.php', {
+        data: user,
+        success: function() {
+            alert('User data saved!');
+        },
+        error: function(err) {
+            alert('Something wrong happened. But we saved your data for you!');
+            var key = Date.now();
+            minidb.local.set(key, user);
+            $('.warning').show();
+        }
+    });
+    
+    $('input[name="name"], input[name="lastname"], input[name="email"]').val('');
+}
+
+function checkPendingData() {
+    if(minidb.local.length()) {
+       $('.warning').show('fast'); 
+    }
+}
+
+function cleanSavedData() {
+    for(var k in minidb.local.all()) {
+        minidb.local.del(k);
+    }
+}
+
+</script>
+</body>
+</html>
