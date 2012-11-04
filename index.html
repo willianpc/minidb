@@ -34,6 +34,7 @@
 </form>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="json2-min.js"></script>
 <script type="text/javascript" src="minidb.js"></script>
 <script type="text/javascript">
 
@@ -79,10 +80,15 @@ function save(user) {
             alert('User data saved!');
         },
         error: function(err) {
+        
             alert('Something wrong happened. But we saved your data for you!');
-            var key = Date.now();
+            alert(0);
+            var key = Math.random();
+            alert(1);
             minidb.local.set(key, user);
+            alert(2);
             $('.warning').show();
+            alert(3);
         }
     });
     

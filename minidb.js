@@ -122,7 +122,7 @@
         remove: remove,
         del: remove,
         size: size,
-        length: length
+        length: size
     };
     
     local = Object.create(tmp);
