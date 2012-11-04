@@ -3,6 +3,14 @@ minidb
 
 A simple wrapper for the local/session storage DOM API management
 
+The API is now compatible to Internet Explorer 6~8
+
+NOTE: If you do not need to worry about old browsers support, simply take off the polyfills from the script.
+
+NOTE2: When using older browsers remember to import JSON api from https://github.com/douglascrockford/JSON-js
+
+Special thanks to @zenorocha and @guipn
+
 Live demo
 --------------------------
 http://wpsystem.com.br/minidb/
@@ -20,6 +28,7 @@ minidb.STORAGE_TYPE.ACTION
  * select/get
  * insert/set
  * remove/del
+ * size/length
 
 **Examples:**
 
