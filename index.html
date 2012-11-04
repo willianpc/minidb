@@ -80,15 +80,10 @@ function save(user) {
             alert('User data saved!');
         },
         error: function(err) {
-        
             alert('Something wrong happened. But we saved your data for you!');
-            alert(0);
             var key = Math.random();
-            alert(1);
             minidb.local.set(key, user);
-            alert(2);
             $('.warning').show();
-            alert(3);
         }
     });
     
