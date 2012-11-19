@@ -49,3 +49,14 @@ var someArray = minidb.local.select('someArray');
 selectAll / all returns a key/value set of data.
 
 If you do prefer an array instead of a set simply use **minidb.local.all().toArray();**
+
+**Lists**
+
+As of November 19 commit, the method toArray from the all() method has been set as not enumerable. So, when you do a for(var k in minidb.local.all()) ... the toArray method is not displayed anymore.
+
+This change may cause the method to not be created in older browsers. In case you are using older browsers, toArray can be accessed directly as follows:
+
+minidb.local.toArray()
+
+Alternatively, you can use minidb.local.list()
+
