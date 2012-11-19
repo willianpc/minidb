@@ -17,3 +17,49 @@ label {
     padding: 15px;
     display: none;
 }
+
+h1{
+    border-bottom:1px solid silver;
+}
+
+.container{
+    height: 100%;
+}
+
+.column1 {
+    float:left;
+    width: 19%;
+    border-right:1px solid silver;
+    height:100%;
+}
+
+.column2 {
+    width: 80%;
+    float:left;
+    height: 100%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    padding-left:10px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+.title {
+    color: gray;
+    float:left;
+}
+
+.url {
+    font-size:12px;
+}
+
+.removeLink {
+    text-decoration: none;
+    color: red;
+    padding:5px;
+}

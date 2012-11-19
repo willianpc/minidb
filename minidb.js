@@ -63,7 +63,6 @@
 
     function all() {
         var result = {}, obj, k, arrResult = [];
-        
 
         for(var i=0; i < this.type.length; i++) {
             k = this.type.key(i);
@@ -77,11 +76,32 @@
             result[k] = obj;
         }
         
-        result.toArray = function() {
-            return arrResult.slice();
-        };
+        if(Object.defineProperty) {
+            Object.defineProperty(result, 'toArray', {
+                value: function() {
+                    return arrResult.slice();
+                }
+            });
+        }
         
         return result;
+    }
+
+    function toArray() {
+        var obj, k, arrResult = [];
+
+        for(var i=0; i < this.type.length; i++) {
+            k = this.type.key(i);
+
+            try {
+                obj = JSON.parse(this.type.getItem(k));
+            } catch(err) {
+                obj = this.type.getItem(k);
+            }
+            arrResult.push(obj);
+        }
+        
+        return arrResult.slice();
     }
 
     function get(k) {
@@ -122,7 +142,9 @@
         remove: remove,
         del: remove,
         size: size,
-        length: size
+        length: size,
+        toArray: toArray,
+        list: toArray
     };
     
     local = Object.create(tmp);
