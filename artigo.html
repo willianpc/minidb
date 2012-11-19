@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>my links</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+<h1>My links</h1>
+
+<div class="container">
+    <div class="column1">
+        <form id="frm">
+            <div>Title</div>
+            <div><input type="text" name="title" id="title" placeholder="Link title"/></div>
+            
+            <div>URL</div>
+            <div><input type="text" name="url" id="url" placeholder="Website URL" value="http://"/></div>
+            <div style="text-align: right">
+                <input type="button" class="btnAdd" value="Add"/>
+            </div>            
+        </form>
+    </div>
+    
+    <div class="column2">
+        <ul class="linkList">
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="json2-min.js"></script>
+<script type="text/javascript" src="minidb.js"></script>
+<script type="text/javascript">
+
+var ul = $('.linkList');
+
+function listAllLinks() {
+    var links = minidb.local.all();
+    var buffer = "";
+    
+    for(var i in links) {
+        buffer += li(links[i]);
+    }
+    
+    ul.append(buffer);
+}
+listAllLinks();
+
+function li(link) {
+    return "<li><a href='#' class='removeLink'> x </a><div class='title'>" + link.title + "</div><div class='url'>" + link.url + "</div></li>";
+}
+
+function addLink() {
+    var url = $('#url').val();
+    var title = $('#title').val();
+    
+    if(!url || !title) {
+        alert('Please, fill both fields');
+    } else {
+        var link = {
+            title: title,
+            url: url
+        };
+        minidb.local.set(Date.now(), link);
+        ul.append(li(link));
+
+        $('#title').val('');
+        $('#url').val('http://');
+    }
+}
+
+$('.btnAdd').click(function() {
+    addLink();
+});
+
+$('#title, #url').keyup(function(ev) {
+    var k = ev.keyCode || ev.which;
+    if(k===13) {
+        addLink();
+    }
+});
+
+</script>
+</body>
+</html>
