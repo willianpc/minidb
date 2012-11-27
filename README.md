@@ -13,7 +13,9 @@ Special thanks to @zenorocha and @guipn
 
 Live demo
 --------------------------
-http://wpsystem.com.br/minidb/
+ * http://wpsystem.com.br/minidb/
+ * http://wpsystem.com.br/minidb/artigo.html
+
 
 How to use it
 ------------------------------
