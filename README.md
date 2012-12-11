@@ -33,7 +33,7 @@ minidb.STORAGE_TYPE.ACTION
  * size/length
 
 **Examples:**
-
+```javascript
 minidb.local.set('name', 'Willian');
 
 minidb.local.get('name'); //gives you "Willian"
@@ -47,7 +47,7 @@ minidb.session.get('userData'); //gives you {id:333, name: 'Joseph'}
 minidb.local.insert('someArray', [2, 3, 4, 5, 6, 'a string', {myObj: 'yay! an object'}]);
 
 var someArray = minidb.local.select('someArray');
-
+```
 selectAll / all returns a key/value set of data.
 
 If you do prefer an array instead of a set simply use **minidb.local.all().toArray();**
@@ -57,8 +57,10 @@ If you do prefer an array instead of a set simply use **minidb.local.all().toArr
 As of November 19 commit, the method toArray from the all() method has been set as not enumerable. So, when you do a for(var k in minidb.local.all()) ... the toArray method is not displayed anymore.
 
 This change may cause the method to not be created in older browsers. In case you are using older browsers, toArray can be accessed directly as follows:
-
+```javascript
 minidb.local.toArray()
-
-Alternatively, you can use minidb.local.list()
-
+```
+Alternatively, you can use:
+```javascript
+minidb.local.list()
+```
