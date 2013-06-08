@@ -13,8 +13,8 @@ Special thanks to @zenorocha and @guipn
 
 Live demo
 --------------------------
- * http://wpsystem.com.br/minidb/
- * http://wpsystem.com.br/minidb/artigo.html
+ * http://williancarvalho.com/minidb/
+ * http://williancarvalho.com/minidb/artigo.html
 
 
 How to use it
